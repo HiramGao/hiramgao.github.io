@@ -8,8 +8,7 @@ branches:
   - dev
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_40257ae8d587_key -iv $encrypted_40257ae8d587_iv
-  -in id_rsa.enc -out .travis/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_40257ae8d587_key -iv $encrypted_40257ae8d587_iv -in id_rsa.enc -out .travis/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
@@ -25,3 +24,7 @@ script:
 - hexo clean
 - hexo g
 - hexo d
+
+cache:
+  directories:
+    - node_modules
