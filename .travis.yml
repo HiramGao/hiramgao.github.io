@@ -1,13 +1,8 @@
-
 language: node_js
-
 sudo: false
-
-# master为hexo博客所在分支
 branches:
   only:
   - dev
-
 before_install:
 - openssl aes-256-cbc -K $encrypted_40257ae8d587_key -iv $encrypted_40257ae8d587_iv
   -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
@@ -17,16 +12,13 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name 'hiramgao'
 - git config --global user.email hiramgao@163.com
-
 install:
 - npm install hexo-cli -g
 - npm install
-
 script:
 - hexo clean
 - hexo g
 - hexo d
-
 cache:
   directories:
-    - node_modules
+  - node_modules
