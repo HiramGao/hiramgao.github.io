@@ -10,13 +10,13 @@ branches:
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_40257ae8d587_key -iv $encrypted_40257ae8d587_iv
-  -in .travis/id_rsa.enc -out .travis/id_rsa -d
-- chmod 600 .travis/id_rsa
+  -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
-- ssh-add .travis/id_rsa
-- cp .travis/ssh_config .travis/config
-- git config --global user.name 'hiramgao'
-- git config --global user.email 'hiramgao@163.com'
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name 'acwong'
+- git config --global user.email acwong00@gmail.com
 
 install:
 - npm install hexo-cli -g
