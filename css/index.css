@@ -1,0 +1,105 @@
+.pagination {
+  background-color: #fff;
+  box-shadow: 0 1.5px 4px rgba(0,0,0,0.24), 0 1.5px 6px rgba(0,0,0,0.12);
+  -webkit-transition: box-shadow 1s ease;
+  -o-transition: box-shadow 1s ease;
+  transition: box-shadow 1s ease;
+}
+.pagination:hover {
+  box-shadow: 0 15px 24px rgba(0,0,0,0.22), 0 19px 76px rgba(0,0,0,0.3);
+}
+.pagination a {
+  padding: 6px 12px;
+  color: #696969;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  line-height: 1.41;
+  font-size: 18px;
+}
+.pagination a:hover {
+  background-color: #eee;
+}
+.pagination .disable a {
+  cursor: not-allowed;
+}
+.pagination .disable a:hover {
+  background-color: #fff;
+}
+.posts .post-item-wrapper {
+  background-color: #fff;
+  box-shadow: 0 1.5px 4px rgba(0,0,0,0.24), 0 1.5px 6px rgba(0,0,0,0.12);
+  -webkit-transition: box-shadow 1s ease;
+  -o-transition: box-shadow 1s ease;
+  transition: box-shadow 1s ease;
+}
+.posts .post-item-wrapper:hover {
+  box-shadow: 0 15px 24px rgba(0,0,0,0.22), 0 19px 76px rgba(0,0,0,0.3);
+}
+.posts .post-item-wrapper a {
+  color: #696969;
+}
+.posts .post-item-wrapper a:hover {
+  color: #505050;
+}
+.posts .post-item-wrapper h3 {
+  border-left: 1px solid #5a5a5a;
+  text-indent: 0.5em;
+}
+.posts .post-item-wrapper h3:hover {
+  text-decoration: underline;
+}
+.posts .post-item-wrapper .post-description-time {
+  color: #999;
+  font-size: 12px;
+}
+.posts .post-item-wrapper .tag-item {
+  font-size: 13px;
+  color: #fff;
+  line-height: 18px;
+  padding: 0 5px 0 10px;
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  background-color: #ba8f6c;
+}
+.posts .post-item-wrapper .tag-item:before {
+  content: ' ';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -18px;
+  border: 9px solid transparent;
+  border-right-color: #ba8f6c;
+}
+.posts .post-item-wrapper .tag-item:after {
+  content: ' ';
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 7px;
+  left: 2px;
+}
+.posts .post-item-wrapper .tag-item:hover {
+  color: #eee;
+}
+.posts .post-item-wrapper .btn {
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0.55em 1.3em 0.35em;
+  font-size: 12px;
+  background: none;
+  border-width: 2.7px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  border-radius: 4px;
+  color: #787878;
+  transition: width 1s ease;
+}
+.posts .post-item-wrapper .btn:hover {
+  background-color: #a0a0a0;
+  color: #fff;
+}
