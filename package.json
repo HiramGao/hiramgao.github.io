@@ -6,11 +6,11 @@
     "version": "3.2.2"
   },
   "scripts": {
-    "deploy": "hexo clean && hexo g -d"
+    "deploy": "npm run theme && hexo clean && hexo g -d",
+    "theme": "git clone git@github.com:HiramGao/hexo-theme-QAQ.git themes/QAQ"
   },
   "dependencies": {
     "hexo": "^3.2.0",
-    "hexo-admin": "^2.1.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
