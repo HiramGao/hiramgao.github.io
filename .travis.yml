@@ -15,9 +15,7 @@ install:
 - npm install hexo-cli -g
 - npm install
 script:
-- hexo clean
-- hexo g
-- hexo d
+- npm run deploy
 cache:
   directories:
   - node_modules
