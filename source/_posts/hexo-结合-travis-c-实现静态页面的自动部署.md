@@ -85,5 +85,5 @@ cache:
 
 
 
-参考 [我的博客](https://hexo.io/docs/index.html)
+参考 [我的博客](https://github.com/HiramGao/hiramgao.github.io/tree/dev)
 
