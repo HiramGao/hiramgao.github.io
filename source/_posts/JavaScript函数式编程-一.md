@@ -16,7 +16,7 @@ tags:
 1.  JavaScript中纯函数是一等公民
 	什么叫做**纯函数**
 	``` javascript
-	function add(a,b){
+	function add(a,b){a,b)
 		return a + b
 	}
 	add(1,2) //3
