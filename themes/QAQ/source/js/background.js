@@ -105,11 +105,27 @@
         var sidebar = document.getElementById('sidebar');
         var context = document.getElementById('context');
         closeSidebar.addEventListener("click", function() {
-            sidebar.style.width = '0';
-            sidebar.style.height = '0';
-            sidebar.style.opacity = '0';
-            context.style.width = "100%";
-        }, false)
+                sidebar.style.width = '0';
+                sidebar.style.height = '0';
+                sidebar.style.opacity = '0';
+                context.style.width = "100%";
+            }, false)
+            //progress
+        var totalH = document.body.clientHeight
+        var h = (window.innerHeight || document.documentElement.clientHeight) + window.pageYOffset;
+        var progress = document.getElementById('progress-indicator');
+
+        function winScroll() {
+            requestAnimationFrame(function() {
+                updateProgress(((window.innerHeight || document.documentElement.clientHeight) + window.pageYOffset) / totalH);
+            });
+        }
+        winScroll();
+        document.addEventListener('scroll', winScroll, false);
+
+        function updateProgress(perc) {
+            progress.style.width = perc * 100 + '%';
+        }
     }
 
 
