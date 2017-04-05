@@ -1,0 +1,21 @@
+<article class="post mt1 p2 mb3">
+  <header class="post-header my1 pb2">
+    <h1 class="m0 center"><%= page.title%></h1>
+    <small class="time center block">
+      发表于&nbsp;<time><%=date(page.date,'YYYY-MM-DD')%></time>
+    </small>
+  </header>
+  <section class="post-body markdown-body px1 pb2">
+    <%- page.content %>
+  </section>
+
+  <%- js('js/highlight.pack.js')%>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var codeBlock = [].slice.call(document.getElementsByTagName('pre'));
+      codeBlock.forEach(function(b,i){
+        hljs.highlightBlock(b);
+      });
+    });
+  </script>
+</article>

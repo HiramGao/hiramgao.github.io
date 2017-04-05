@@ -1,0 +1,20 @@
+<div class="post-item-wrapper clearfix p2 mt1">
+  <h3><a class="text-decoration-none" href="<%- url_for(post.path)%>"><%= post.title%></a></h3>
+  <div class="post-description">
+    <span class="post-description-time">
+      发表于 <time><%- date(post.date, 'YYYY-MM-DD') %></time>
+    </span>
+    &nbsp;
+    <% if(post.tags && post.tags.length){ %>
+      <span>
+        <img src="<%- url_for('images/tags.png')%>" class="align-bottom" width="20">
+        <% post.tags.each(function(tag){ %>
+          <a class="text-decoration-none tag-item mx1" href="<%- url_for(tag.path)%>"><%= tag.name%></a>
+        <% }) %>
+      </span>
+    <% } %>
+    <a class="btn text-decoration-none right inline-block" href="<%- url_for(post.path)%>">
+      阅读全文
+    </a>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "qaq",
+  "version": "0.1.0",
+  "description": "a theme for hexo",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:HiramGao/hexo-theme-QAQ.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "blog"
+  ],
+  "author": "hiramgao",
+  "license": "ISC",
+  "bugs": {
+    "url": "git@github.com:HiramGao/hexo-theme-QAQ/issues"
+  },
+  "homepage": "git@github.com:HiramGao/hexo-theme-QAQ#readme"
+}

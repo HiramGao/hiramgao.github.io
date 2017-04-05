@@ -1,0 +1,31 @@
+<div class="archive mt1 p2">
+  <ul class="list-reset">
+    <%
+      var year = -1;
+      site.posts.sort('date',-1).each(function(post){
+        if(is_tag()){
+        if(_.indexOf(_.map(_.get(post.tags,'data'),'name'),page.tag) > -1){
+          var post_year = date(post.date, 'YYYY')
+          if(post_year && year !== post_year){
+            year  = post_year;
+
+    %>
+      <%- partial('_partial/archive_item',{post: post,add_year:true}) %>
+    <%  }else{ %>
+      <%- partial('_partial/archive_item',{post: post,add_year:false}) %>
+    <%    }
+    }}else {
+        var post_year = date(post.date, 'YYYY')
+        if(post_year && year !== post_year){
+          year  = post_year;
+
+  %>
+    <%- partial('_partial/archive_item',{post: post,add_year:true}) %>
+  <%  }else{ %>
+    <%- partial('_partial/archive_item',{post: post,add_year:false}) %>
+  <%    }
+
+  }})
+    %>
+  </ul>
+</div>

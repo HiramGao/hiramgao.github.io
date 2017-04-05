@@ -1,0 +1,6 @@
+<div class="posts">
+  <% page.posts.sort('date',-1).each(function(post){ %>
+    <%- partial('_partial/post_item',{post: post}) %>
+  <% }) %>
+</div>
+<%- partial('_partial/pagination')%>

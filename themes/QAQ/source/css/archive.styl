@@ -1,0 +1,35 @@
+@import "./_utils"
+
+.archive
+  material-box-shadow()
+  background-color #fff
+  .archive-item
+    border-left 3px solid transparent
+    &:hover
+      border-left-color #2196f3
+      background-color rgba(33,150,243,0.1)
+    a
+      color #414141
+  .archive-year
+    font-size 20px
+  .archive-post
+    line-height 1.41
+    text-indent 1em
+    time
+      color #414141
+      font-size 14px
+    .post-title
+      color #2196f3
+      &:hover
+        text-decoration underline
+
+
+@media (max-width: 64em)
+  .archive
+    .archive-item
+      a
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-indent 0

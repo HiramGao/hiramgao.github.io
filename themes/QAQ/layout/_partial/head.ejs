@@ -1,0 +1,25 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title><%= config.title%></title>
+	<%- css('css/main')%>
+	<% if(is_home()){ %>
+		<%- css('css/index')%>
+	<% } %>
+	<% if(is_archive() || is_tag()){ %>
+		<%- css('css/archive')%>
+	<% } %>
+	<% if(is_tag()){ %>
+		<%- css('css/tag')%>
+	<% } %>
+	<% if(is_post()){ %>
+		<%- css('css/post')%>
+	<% } %>
+	<% if(is_current('tags/index.html')){ %>
+		<%- css('css/tags')%>
+	<%}%>
+</head>

@@ -1,0 +1,25 @@
+<section id="sidebar" class="sidebar lg-col sm-col-12 lg-col-3 mx-auto mt2 center">
+  <button type="button" class="close-sidebar" id="close-sidebar"><div class="close_btn">×</div></button>
+  <div>
+    <img src="<%- url_for('/images/avatar.jpg')%>" class="author-image mx-auto block border p1 circle mt4">
+    <h3 class="author-name"><%= config.author %></h3>
+    <p class="description"><%= config.description||'' %></p>
+    <nav class="site-info mt3">
+      <div class="inline-block site-info-item px2">
+        <a href="/archives" class="text-decoration-none">
+          <span class="site-info-name block">POSTS</span>
+          <span class="site-info-count"><%= site.posts.length %></span>
+        </a>
+      </div>
+      <div class="inline-block site-info-item px2">
+        <a href="/tags" class="text-decoration-none">
+          <span class="site-info-name block">TAGS</span>
+          <span class="site-info-count"><%= site.tags.length %></span>
+        </a>
+      </div>
+    </nav>
+    <div class="feed-link mt3 mb3">
+      <a class="text-decoration-none inline-block mx-auto" href="<%- url_for(theme.rss)%>"><img src="<%- url_for('/images/rss.png')%>" alt=""> RSS</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<%
+  if(is_tag()){ %>
+    <%- partial('_partial/tag')%>
+    <%- partial('_partial/archive')%>
+  <%}else{
+  %>
+    <%- partial('_partial/tagcloud')%>
+<%  }
+%>

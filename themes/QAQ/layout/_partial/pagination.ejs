@@ -1,0 +1,17 @@
+<div class="fit mt3 block center mb3">
+  <ul class="pagination list-reset inline-block my0 clearfix">
+    <% if(page.prev){ %>
+      <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.prev_link%>">Prev</a></li>
+    <% }else{ %>
+      <li class="inline-block left disable"><a class="text-decoration-none block">Prev</a></li>
+    <% } %>
+
+    <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current%></a></li>
+
+    <% if(page.next){ %>
+      <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.next_link%>">Next</a></li>
+    <% }else{ %>
+      <li class="inline-block left disable"><a class="text-decoration-none block">Next</a></li>
+    <% } %>
+  </ul>
+</div>

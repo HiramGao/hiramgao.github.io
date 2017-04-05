@@ -1,0 +1,9 @@
+<%if(add_year){%>
+  <li class="archive-item archive-year"><a class="text-decoration-none inline-block p1" href="#"><%= date(post.date,'YYYY')%></a></li>
+<%}%>
+<li class="archive-item archive-post pl1">
+  <a class="text-decoration-none" href="<%- url_for(post.path)%>">
+    <time><%= date(post.date,'MM-DD')%></time>&nbsp;&nbsp;
+    <span class="post-title"><%= post.title%></span>
+  </a>
+</li>
