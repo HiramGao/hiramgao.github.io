@@ -1,5 +1,5 @@
 ---
-title: 'JavaScript函数式编程(四)“ '
+title: JavaScript函数式编程(四)
 date: 2017-04-06 23:23:35
 tags:
 - JavaScript
