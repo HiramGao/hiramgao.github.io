@@ -1,10 +1,11 @@
 ---
 title: JavaScript函数式编程(三)
-date: 2017-04-06 09:16:02
 tags:
-- JavaScript
-- 函数式编程
+  - JavaScript
+  - 函数式编程
+date: 2017-04-06 09:16:02
 ---
+
 
 利用递归可以创建几个工具函数
 
@@ -205,5 +206,80 @@ new LazyChain([2,1,3]).invoke('sort').tap(function(o){
 
 管道
 
+``` javascript
+function pipeline(seed /*, args*/){
+	return _.reduce(_.rest(arguments)
+		,function(l, r){return r(l)}
+		,seed)
+}
+function fifth(a){
+	return pipeline(a
+		,_.rest
+		,_.rest
+		,_.rest
+		,_.rest
+		,_.first
+		)
+}
+fifth([1,2,3,4,5]) /*5*/
+```
 
+使用action组合规范
+
+``` javascript
+
+
+function actions(acts, done) {
+    return function(seed) {
+        var init = { values: [], state: seed };
+        var intermediate = _.reduce(acts, function(stateObj, action) {
+            var result = action(stateObj.state);
+            var values = cat(stateObj.values, [result.answer]);
+
+            return { values: values, state: result.state };
+        }, init);
+        var keep = _.filter(intermediate.values, existy);
+        return done(keep, intermediate.state);
+    };
+}
+
+function lift(answerFun, stateFun) {
+    return function( /* args */ ) {
+        var args = _.toArray(arguments);
+        return function(state) {
+            var ans = answerFun.apply(null, construct(state, args));
+            var s = stateFun ? stateFun(state) : ans;
+
+            return { answer: ans, state: s }
+        }
+    }
+}
+
+/*模拟栈操作*/
+
+var push = lift(function(stack, e){return construct(e, stack)});
+var pop = lift(_.first, _.rest);
+
+var stackAction = actions([
+    push(1),
+    push(2),
+    pop()],
+    function(values, state){
+        return values;
+    });
+
+stackAction([])
+/*[[1], [2, 1], 2]*/
+```
+
+和其他函数组合
+
+```javascript
+pipeline(
+        [], stackAction, _.chain
+    )
+    .each(function(elem) {
+        console.log(elem)
+    });
+```
 
