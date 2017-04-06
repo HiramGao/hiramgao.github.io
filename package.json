@@ -8,7 +8,8 @@
   "scripts": {
     "deploy": "npm run theme && hexo clean && hexo g -d",
     "theme": "git clone git@github.com:HiramGao/hexo-theme-QAQ.git themes/QAQ",
-    "dev": "hexo s & hexo g --watch"
+    "dev": "hexo s & hexo g --watch",
+    "push":"git add source/_posts/ && git commit -m '新的文章' && git push"
   },
   "dependencies": {
     "hexo": "^3.2.0",
