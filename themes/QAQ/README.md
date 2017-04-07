@@ -14,8 +14,10 @@
 
 `git clone git@github.com:HiramGao/hexo-theme-QAQ.git themes/QAQ`
 
-修改配置为`QAQ`
+修改皮肤配置为`QAQ`
 
 ### TODOLIST
 
-暂无(坑)
+- 抽离配置
+- SEO优化
+- 优化代码结构
