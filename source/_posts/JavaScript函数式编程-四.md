@@ -103,3 +103,122 @@ poloToString({a:1})
 ```
 
 使用Mixin扁平化结构
+
+``` javascript
+/*mixin*/
+function Container(val) {
+    this._value = val;
+    this.init(val);
+}
+Container.prototype.init = _.identity;
+
+var HoleMixin = {
+    setValue: function(newValue) {
+        var oldValue = this._value;
+        this.validate(newValue);
+        this._value = newValue;
+        this.notify(oldValue, newValue);
+        return this._value;
+    },
+};
+var Hole = function(val) {
+    Container.call(this, val);
+};
+
+var ObserverMixin = (function() {
+    var _watchers = [];
+    return {
+        watch: function(fun) {
+            _watchers.push(fun);
+            return _.size(_watchers);
+        },
+        notify: function(oldValue, newValue) {
+            _.each(_watchers, function(watcher) {
+                watcher.call(this, oldValue, newValue);
+            });
+            return _.size(_watchers);
+        }
+    };
+})();
+var ValidateMixin = {
+    addValidator: function(fun) {
+        this._validator = fun;
+    },
+    init: function(val) {
+        this.validate(val);
+    },
+    validate: function(val) {
+        if (existy(this._validator) && !this._validator(val)) {
+            fail("Attempted to set invalid value " + poloToString(val));
+        }
+    }
+};
+
+_.extend(Hole.prototype, HoleMixin, ValidateMixin, ObserverMixin);
+
+var h = new Hole(42);
+h.addValidator(always(false))
+h.setValue(9)
+/*Attempted to set invalid value 9*/
+
+var h = new Hole(42);
+h.addValidator(isEven);
+h.setValue(9)
+/*Attempted to set invalid value 9*/
+h.setValue(108)
+/*108*/
+
+```
+
+通过混合成一个新的数据结构
+
+``` javascript
+var SwapMixin = {
+    swap: function(fun /*, args*/){
+        var args = _.rest(arguments);
+        var newValue = fun.apply(this, construct(this.value, args));
+
+        return this.setValue(newValue);
+    }
+};
+var SnapshotMixin = {
+    snapshot: function(){
+        return deepClone(this._value);
+    }
+};
+
+_.extend(Hole.prototype, HoleMixin, ValidateMixin, ObserverMixin, SwapMixin, SnapshotMixin);
+
+var h = new Hole(42)
+h.snapshot()
+/*42*/
+h.swap(always(99));
+h.snapshot()
+/*99*/
+```
+
+实现一个新的类型CAS
+
+``` javascript
+var CAS = function(val){
+    Hole.call(this, val);
+}
+var CASMixin = {
+    swap: function(oldVal, f){
+        if(this._value === oldVal){
+            this.setValue(f(this._value));
+            return this._value;
+        }else{
+            return undefined;
+        }
+    },
+};
+
+_.extend(CAS.prototype, HoleMixin, ValidateMixin, ObserverMixin, SwapMixin, CASMixin, SnapshotMixin);
+var c = new CAS(42);
+c.swap(42, always(-1));
+c.snapshot()
+/*-1*/
+```
+
+方法是低级别的操作，将上列操作封装成函数式API
