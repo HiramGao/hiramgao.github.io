@@ -109,6 +109,7 @@
                 sidebar.style.height = '0';
                 sidebar.style.opacity = '0';
                 context.style.width = "100%";
+                sidebar.style.margin = "0";
             }, false)
             //progress
         var totalH = document.body.clientHeight

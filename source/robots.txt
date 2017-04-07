@@ -1,2 +1,6 @@
 User-agent: *
 Disallow:
+
+
+Sitemap: http://blog.hiramgao.me/sitemap.xml
+Sitemap: http://blog.hiramgao.me/baidusitemap.xml
