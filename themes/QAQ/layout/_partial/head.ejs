@@ -5,21 +5,47 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<title><%= config.title%></title>
 	<%- css('css/main')%>
 	<% if(is_home()){ %>
+		<title><%= config.title||'' %><%= config.description ? " - " + config.description : "" %></title>
 		<%- css('css/index')%>
 	<% } %>
-	<% if(is_archive() || is_tag()){ %>
+	<% if(is_archive()){ %>
+		<title>归档 | <%= config.title||'' %></title>
 		<%- css('css/archive')%>
 	<% } %>
 	<% if(is_tag()){ %>
+		<title>标签:<%=page.tag %> | <%= config.title||'' %></title>
+		<%- css('css/archive')%>
 		<%- css('css/tag')%>
 	<% } %>
 	<% if(is_post()){ %>
+		<title><%=page.title%> | <%= config.title||'' %></title>
 		<%- css('css/post')%>
 	<% } %>
 	<% if(is_current('tags/index.html')){ %>
+		<title>标签 | <%= config.title||'' %></title>
 		<%- css('css/tags')%>
 	<%}%>
+	<meta name="author" content="<%= config.author %>>">
+    <% if (page.description){ %>
+	<meta name="description" content="<%= page.description %>">
+    <% } else if (page.excerpt){ %>
+	<meta name="description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
+    <% } else if (page.content){ %>
+	<meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
+    <% } else if (config.description){ %>
+	<meta name="description" content="<%= config.description %>">
+    <% } %>
+
+    <% if (page.keywords){ %>
+	<meta name="keywords" content="<%= page.keywords %>">
+    <% } else if (page.tags){ %>
+    <%
+		var keywords_content=[];
+		page.tags.each(function(k){
+			keywords_content.push(k.name);
+		}) %>
+	<meta name="keywords" content="<%= keywords_content %>">
+    <% } %>
 </head>
