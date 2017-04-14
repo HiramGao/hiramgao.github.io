@@ -523,12 +523,6 @@
   font-weight: bold;
 }
 
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
-}
-
 .markdown-body table tr {
   background-color: #fff;
   border-top: 1px solid #ccc;
@@ -590,7 +584,6 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f7f7f7;
   border-radius: 3px;
 }
 
@@ -682,6 +675,20 @@
 }
 
 
+td.gutter{
+  display none
+}
+td.code
+  padding 0 !important
+
+figure.highlight
+  margin 0
+  overflow auto
+  *
+    border none !important
+  table
+  	margin-bottom 0
+  	
 /*
 
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
@@ -692,7 +699,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background-color: #23241f !important;
+  background: #23241f;
 }
 
 .hljs,
@@ -766,16 +773,4 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   color: #75715e;
 }
 
-td.gutter{
-  display none
-}
-td.code
-  padding 0 !important
 
-figure.highlight
-  margin 0
-  overflow auto
-  *
-    border none !important
-  table
-  	margin-bottom 0
