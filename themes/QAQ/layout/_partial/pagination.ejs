@@ -1,17 +1,40 @@
 <div class="fit mt3 block center mb3">
-  <ul class="pagination list-reset inline-block my0 clearfix">
-    <% if(page.prev){ %>
-      <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.prev_link%>">Prev</a></li>
-    <% }else{ %>
-      <li class="inline-block left disable"><a class="text-decoration-none block">Prev</a></li>
-    <% } %>
+    <ul class="pagination list-reset inline-block my0 clearfix">
+        <% if(page.prev){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="/">首页</a></li>
+            <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.prev_link %>">上一页</a>
+            </li>
+        <% }else{ %>
+            <li class="inline-block left disable"><a class="text-decoration-none block">首页</a></li>
+            <li class="inline-block left disable"><a class="text-decoration-none block">上一页</a></li>
+        <% } %>
+        <% if(page.total === page.current && page.current - 2 > 0){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current - 2 %></a>
+            </li>
+        <% } %>
+        <% if(!(page.current - 1 <= 0)){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current - 1 %></a>
+            </li>
+        <% } %>
 
-    <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current%></a></li>
+        <li class="inline-block left current-page shake shake-little"><a class="text-decoration-none block"
+                                                                         href="#"><%= page.current %></a></li>
 
-    <% if(page.next){ %>
-      <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.next_link%>">Next</a></li>
-    <% }else{ %>
-      <li class="inline-block left disable"><a class="text-decoration-none block">Next</a></li>
-    <% } %>
-  </ul>
+        <% if(!(page.current + 1 > page.total)){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current + 1 %></a>
+            </li>
+        <% } %>
+        <% if(page.current === 1 && page.current + 2 <= page.total){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="#"><%= page.current + 2 %></a>
+            </li>
+        <% } %>
+
+        <% if(page.next){ %>
+            <li class="inline-block left"><a class="text-decoration-none block" href="/<%= page.next_link %>">下一页</a>
+            </li>
+        <% }else{ %>
+            <li class="inline-block left disable"><a class="text-decoration-none block">下一页</a></li>
+        <% } %>
+        <li class="inline-block left"><a class="text-decoration-none block" href="#">共<%= page.total %>页</a></li>
+    </ul>
 </div>

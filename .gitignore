@@ -4,3 +4,4 @@ public/
 .idea/
 db.json
 npm-debug.log
+package-lock.json
