@@ -1,7 +1,7 @@
-<section id="sidebar" class="sidebar lg-col sm-col-12 lg-col-3 mx-auto mt2 center">
+<section id="sidebar" class="sidebar lg-col sm-col-12 lg-col-3 mx-auto mt2 center animated fadeInLeftBig faster">
   <button type="button" class="close-sidebar" id="close-sidebar"><div class="close_btn">×</div></button>
   <div>
-    <img src="<%- url_for('/images/avatar.jpg')%>" class="author-image mx-auto block border p1 circle mt4">
+    <img id="avatar" src="<%- url_for('/images/avatar.jpg')%>" class="author-image mx-auto block border p1 circle mt4 shake-opacity">
     <h3 class="author-name"><%= config.author %></h3>
     <p class="motto"><%= theme.motto||'' %></p>
     <nav class="site-info mt3">
@@ -23,4 +23,5 @@
     </div>
   </div>
   <div class="copyright mt1 pt1 pb1 absolute">© 2017-2020 hiramgao <br>Powered by <a href="https://hexo.io/" rel="external nofollow">Hexo.</a> <br>Theme by <a href="https://github.com/HiramGao/hexo-theme-QAQ" rel="external nofollow">hiramgao</a></div>
+
 </section>
