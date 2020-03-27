@@ -5,23 +5,22 @@ sudo: false
 branches:
   only:
   - dev
-before_install:
-- openssl aes-256-cbc -K $encrypted_24f627a79d15_key -iv $encrypted_24f627a79d15_iv -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
-- eval $(ssh-agent)
-- ssh-add ~/.ssh/id_rsa
-- cp .travis/ssh_config ~/.ssh/config
-- git config --global user.name 'hiramgao'
-- git config --global user.email hiramgao@163.com
 install:
-- npm install hexo-cli -g
 - npm install
 script:
-- hexo clean
 - hexo g
-- hexo d
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "hiramgao"
+  - git config user.email "hiramgao@163.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${blogToken}@${GH_REF}" master:master
+
 cache:
   directories:
   - node_modules
-notifications:
-   webhooks: https://oapi.dingtalk.com/robot/send?access_token=87ba889612c508fae83070c746bc6a18fe4e30365377207a28a1d93f1e32d158
+env:
+  global:
+    - GH_REF: github.com/HiramGao/hiramgao.github.io.git
