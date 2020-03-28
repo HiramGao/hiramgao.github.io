@@ -2,11 +2,9 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext || window
 
 !async function () {
   const avatar = document.getElementById('avatar');
-  const context = new (window.AudioContext || window.webkitAudioContext)();
+  const context = new window.AudioContext;
 
-  const winWidth = window.innerWidth,
-    winHeight = window.innerHeight,
-    canvas = document.getElementById('egg');
+  const canvas = document.getElementById('egg');
   const cwidth = canvas.width,
     cheight = canvas.height - 2,
     meterWidth = 10, //width of the meters in the spectrum
@@ -24,9 +22,13 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext || window
 
   avatar.addEventListener('click', playEgg);
 
+  avatar.addEventListener("touchstart", playEgg)
+
+
   function playEgg() {
     playAudio();
     avatar.removeEventListener('click', playEgg)
+    avatar.removeEventListener('touchstart', playEgg)
   }
 
   async function playAudio() {
