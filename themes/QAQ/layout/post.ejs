@@ -5,6 +5,15 @@
       发表于&nbsp;<time><%=date(page.date,'YYYY-MM-DD')%></time>
     </small>
   </header>
+  <nav class="catalog mt1 mb1 pb1">
+    <div class="catalog-title mt2 mb1">
+      目录
+    </div>
+    <div class="catalog-body">
+      <%- toc(page.content,{list_number:false,class:"catalog-list",max_depth:2}) %>
+    </div>
+  </nav>
+
   <section class="post-body markdown-body px1 pb2">
     <%- page.content %>
   </section>

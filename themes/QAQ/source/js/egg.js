@@ -21,7 +21,6 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext || window
   let analyser, array, step;
 
   avatar.addEventListener('click', playEgg);
-
   avatar.addEventListener("touchstart", playEgg)
 
 

@@ -17,7 +17,7 @@ tags:
     什么叫做**纯函数**
     ``` javascript
     function add(a,b){a,b)
-    	return a + b
+      return a + b
     }
     add(1,2) /*3*/
     add(1,2) /*3*/
@@ -26,7 +26,7 @@ tags:
     ``` javascript
     var c = 1
     function addWithC(a,b){
-    	return a + b + c
+      return a + b + c
     }
     addWithC(1,2)/*4*/
     c = 2

@@ -147,11 +147,7 @@ Authorization: OAuth realm="Example API",
 不赘述，后期补充。
 
 
-
----
-
 ## 如何设计
-
 API尽量部署到专用域名下且总是使用HTTPs协议。
 
 也可以放在主域名下。
@@ -217,10 +213,8 @@ DELETE /collection/resource：返回一个空文档
 
 Hypermedia：超媒体，返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。
 
----
 
 ## 附录
-
 ### 状态码大全
 
 - 1xx（Informational）
