@@ -129,6 +129,4 @@
             progress.style.width = perc * 100 + '%';
         }
     }
-
-
 }()

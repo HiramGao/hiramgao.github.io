@@ -77,3 +77,8 @@ deploy:
   type: git
   repo: git@github.com:HiramGao/hiramgao.github.io.git
   branch: master
+
+#启用压缩
+all_minifier: true
+js_concator:
+  enable: true
