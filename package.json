@@ -6,10 +6,8 @@
     "version": "3.9.0"
   },
   "scripts": {
-    "deploy": "npm run theme && hexo clean && hexo g -d",
     "theme": "git clone git@github.com:HiramGao/hexo-theme-QAQ.git themes/QAQ",
-    "watch": "hexo g -w -f",
-    "server": "hexo s",
+    "server": "hexo clean && hexo s",
     "push": "git add source/_posts/ && git commit -m '新的文章' && git push"
   },
   "dependencies": {
@@ -24,6 +22,7 @@
     "hexo-generator-sitemap": "^1.1.2",
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.2.0",
+    "hexo-renderer-less": "^1.0.0",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"

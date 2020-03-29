@@ -6,3 +6,5 @@ db.json
 npm-debug.log
 package-lock.json
 themes/QAQ/source/.DS_Store
+.vscode/launch.json
+.DS_Store
