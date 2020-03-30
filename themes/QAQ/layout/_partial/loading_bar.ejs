@@ -13,8 +13,11 @@
     });
     let value = 0;
     let times = setInterval(() => {
-        bar.set(value)
-        value += 10
+        bar.set(value);
+        if(value >= 90)
+            value = 99;
+        else
+            value += 10
     }, 10)
     document.onreadystatechange = function () {
         if (document.readyState == 'complete') {
