@@ -1,8 +1,8 @@
-<div class="post-item-wrapper clearfix p2 mt1">
+<div class="post-item-wrapper clearfix p2 mt1 hvr-shadow-radial block">
   <span class="post-description-time">
     <time><%- date(post.date, 'YYYY-MM-DD') %></time>
   </span>
-  <h3><a class="text-decoration-none" href="<%- url_for(post.path)%>"><%= post.title%></a></h3>
+  <h3 class="mt1 mb1"><a class="text-decoration-none pt1 pb1 hvr-underline-from-left" href="<%- url_for(post.path)%>"><%= post.title%></a></h3>
   <div class="post-description">
     &nbsp;
     <% if(post.tags && post.tags.length){ %>
@@ -14,8 +14,9 @@
       </div>
     <% } %>
     <hr class="divider">
-    <a class="btn text-decoration-none inline-block mt1" href="<%- url_for(post.path)%>">
+    <a class="btn text-decoration-none inline-block mt1 hvr-pulse-shrink hvr-icon-forward" href="<%- url_for(post.path)%>">
       阅读全文
+      <i class="fa fa-chevron-circle-right hvr-icon"></i>
     </a>
   </div>
 </div>

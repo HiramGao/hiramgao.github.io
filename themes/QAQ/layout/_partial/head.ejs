@@ -10,10 +10,10 @@
 	<meta name="google-site-verification" content="pz-ce-l_gQDa6VYnlRFQ9_zPjFd_RjdKQIYuQo3KOa4" />
 	<meta name="baidu-site-verification" content="vk6cCdHgcY" />
 
-	<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<%- css('loadingBar/loading-bar')%>
+	<%- js('loadingBar/loading-bar')%>
 
+	<%- css('fontawesome/css/all')%>
 	<%- css('css/main')%>
 	<% if(is_home()){ %>
 		<title><%= config.title||'' %><%= config.description ? " - " + config.description : "" %></title>
