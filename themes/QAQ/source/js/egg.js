@@ -31,7 +31,7 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext || window
   }
 
   async function playAudio() {
-    let audioMedia = await request('../egg/The+Xx+-+Intro.mp3');
+    let audioMedia = await request('/egg/The+Xx+-+Intro.mp3');
     context.decodeAudioData(audioMedia, decode => play(context, decode));
   }
 
