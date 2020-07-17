@@ -1,0 +1,46 @@
+.archive {
+  box-shadow: 0 1.5px 4px rgba(0,0,0,0.24), 0 1.5px 6px rgba(0,0,0,0.12);
+  -webkit-transition: box-shadow 1s ease;
+  -o-transition: box-shadow 1s ease;
+  transition: box-shadow 1s ease;
+  background-color: #fff;
+}
+.archive:hover {
+  box-shadow: 0 15px 24px rgba(0,0,0,0.22), 0 19px 76px rgba(0,0,0,0.3);
+}
+.archive .archive-item {
+  border-left: 3px solid transparent;
+}
+.archive .archive-item:hover {
+  border-left-color: #2196f3;
+  background-color: rgba(33,150,243,0.1);
+}
+.archive .archive-item a {
+  color: #414141;
+}
+.archive .archive-year {
+  font-size: 20px;
+}
+.archive .archive-post {
+  line-height: 1.41;
+  text-indent: 1em;
+}
+.archive .archive-post time {
+  color: #414141;
+  font-size: 14px;
+}
+.archive .archive-post .post-title {
+  color: #2196f3;
+}
+.archive .archive-post .post-title:hover {
+  text-decoration: underline;
+}
+@media (max-width: 64em) {
+  .archive .archive-item a {
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-indent: 0;
+  }
+}

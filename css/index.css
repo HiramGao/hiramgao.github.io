@@ -1,0 +1,97 @@
+.pagination {
+  background-color: #fff;
+}
+.pagination a {
+  padding: 6px 12px;
+  color: #696969;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  line-height: 1.41;
+  font-size: 18px;
+}
+.pagination a:hover {
+  background-color: #eee;
+}
+.pagination .disable a {
+  cursor: not-allowed;
+}
+.pagination .disable a:hover {
+  background-color: #fff;
+}
+.pagination .current-page {
+  background: #f76d41;
+}
+.pagination .current-page:hover {
+  animation-delay: 1000ms;
+}
+.pagination .current-page a {
+  color: #fff;
+}
+.pagination .current-page a:hover {
+  background: #f76d41;
+}
+.posts .post-item-wrapper {
+  background-color: #fff;
+}
+.posts .post-item-wrapper a {
+  color: #696969;
+}
+.posts .post-item-wrapper a:hover {
+  color: #505050;
+}
+.posts .post-item-wrapper h3 {
+  border-left: 1px solid #5a5a5a;
+  text-indent: 0.5em;
+  line-height: 1.1;
+}
+.posts .post-item-wrapper h3 a {
+  position: relative;
+}
+.posts .post-item-wrapper h3 a:hover {
+  color: #303f9f;
+}
+.posts .post-item-wrapper .post-description-time {
+  color: #999;
+  font-size: 12px;
+}
+.posts .post-item-wrapper .tag-item {
+  font-size: 13px;
+  color: #fff;
+  line-height: 18px;
+  color: #9e9e9e;
+}
+.posts .post-item-wrapper .tag-item:before {
+  content: '#';
+}
+.posts .post-item-wrapper .tag-item:after {
+  content: ',';
+}
+.posts .post-item-wrapper .btn {
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0.55em 1.3em 0.35em;
+  font-size: 12px;
+  background: none;
+  border-width: 2.7px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  border-radius: 4px;
+  color: #787878;
+  transition: width 1s ease;
+}
+.posts .post-item-wrapper .btn:hover {
+  background-color: #a0a0a0;
+  color: #fff;
+}
+@media (max-width: 64em) {
+  .posts .post-item-wrapper h3 >a {
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .posts .post-item-wrapper .btn {
+    float: none;
+    margin-top: 0.5rem;
+  }
+}
