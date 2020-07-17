@@ -8,7 +8,7 @@ branches:
 install:
 - npm install
 script:
-- hexo g
+- hexo g -f
 after_script:
   - cd ./public
   - git init
