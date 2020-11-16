@@ -1,0 +1,6 @@
+
+node_sass:
+  debug: true
+  outputStyle: nested
+  precision: 5
+  sourceComments: true
