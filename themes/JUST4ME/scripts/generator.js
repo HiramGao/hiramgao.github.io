@@ -5,7 +5,7 @@ const _pick = require('lodash.pick');
 
 const defaultConfig = {
     site: true,
-    posts_size: 10,
+    posts_size: 1,
     posts_props: {
         title: true,
         slug: true,
