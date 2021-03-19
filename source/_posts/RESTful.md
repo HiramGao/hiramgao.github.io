@@ -2,7 +2,7 @@
 title: RESTful
 tags:
   - RESTful
-date: 2017-04-14 20:42:51
+date: 2021-03-19 20:42:51
 ---
 
 
@@ -129,22 +129,16 @@ RESTful服务器实现中并不存在会话（session）
 
 ##### OAuth 1.0
 
-不展开
-
-HTTP报头
-
-```
-Authorization: OAuth realm="Example API",
-  oauth_consumer_key="dpf43f3p2l4k3l03",
-  oauth_signature_method="HMAC-SHA1",
-  oauth_timestamp="137131200",
-  oauth_nonce="wIjqoS",
-  oauth_signature="74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D"
-```
-
 ##### OAuth 2.0
 
-不赘述，后期补充。
+小明是新浪微博的用户，想要通过第三方客户端来浏览微博，那第三方客户端如何获取小明在新浪微博的用户信息和时间线？
+
+直接授予账号密码的弊端：
+1、第三方客户端可能会保存小明的账号密码；
+2、第三方客户端可以访问小明在新浪微博上的所有数据；
+3、要收回第三方客户端的权限，只有修改密码。
+
+![OAuth 2.0](7276920-f72fa1c71f94d2e7.webp)
 
 
 ## 如何设计
@@ -212,6 +206,69 @@ DELETE /collection/resource：返回一个空文档
 **Hypermedia API**
 
 Hypermedia：超媒体，返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。
+当用户向`api.example.com`发送请求后会得到
+``` json
+{
+  //link属性，用户读取这个属性就知道下一步该调用什么API
+  "link": {
+    //rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址）
+    "rel":   "collection https://www.example.com/zoos",
+    //href表示API的路径
+    "href":  "https://api.example.com/zoos",
+    //title表示API的标题
+    "title": "List of zoos",
+    //type表示返回类型
+    "type":  "application/vnd.yourformat+json"
+  }
+}
+
+```
+访问 `https://api.github.com/`
+``` json
+{
+  current_user_url: "https://api.github.com/user",
+  current_user_authorizations_html_url: "https://github.com/settings/connections/applications{/client_id}",
+  authorizations_url: "https://api.github.com/authorizations",
+  code_search_url: "https://api.github.com/search/code?q={query}{&page,per_page,sort,order}",
+  commit_search_url: "https://api.github.com/search/commits?q={query}{&page,per_page,sort,order}",
+  emails_url: "https://api.github.com/user/emails",
+  emojis_url: "https://api.github.com/emojis",
+  events_url: "https://api.github.com/events",
+  feeds_url: "https://api.github.com/feeds",
+  followers_url: "https://api.github.com/user/followers",
+  following_url: "https://api.github.com/user/following{/target}",
+  gists_url: "https://api.github.com/gists{/gist_id}",
+  hub_url: "https://api.github.com/hub",
+  issue_search_url: "https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}",
+  issues_url: "https://api.github.com/issues",
+  keys_url: "https://api.github.com/user/keys",
+  label_search_url: "https://api.github.com/search/labels?q={query}&repository_id={repository_id}{&page,per_page}",
+  notifications_url: "https://api.github.com/notifications",
+  organization_url: "https://api.github.com/orgs/{org}",
+  organization_repositories_url: "https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}",
+  organization_teams_url: "https://api.github.com/orgs/{org}/teams",
+  public_gists_url: "https://api.github.com/gists/public",
+  rate_limit_url: "https://api.github.com/rate_limit",
+  repository_url: "https://api.github.com/repos/{owner}/{repo}",
+  repository_search_url: "https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}",
+  current_user_repositories_url: "https://api.github.com/user/repos{?type,page,per_page,sort}",
+  starred_url: "https://api.github.com/user/starred{/owner}{/repo}",
+  starred_gists_url: "https://api.github.com/gists/starred",
+  user_url: "https://api.github.com/users/{user}",
+  user_organizations_url: "https://api.github.com/user/orgs",
+  user_repositories_url: "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
+  user_search_url: "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
+}
+
+```
+获取emails访问`https://api.github.com/user/emails`
+
+``` json
+{
+  message: "Requires authentication",
+  documentation_url: "https://docs.github.com/rest/reference/users#list-email-addresses-for-the-authenticated-user"
+}
+```
 
 
 ## 附录
