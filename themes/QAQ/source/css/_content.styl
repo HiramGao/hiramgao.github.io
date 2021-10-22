@@ -1,7 +1,38 @@
 .content
 	transition all 0.5s
+	.back-to-top-wrapper
+		position fixed
+		bottom 25px
+		right 25px
+		z-index 3
+		text-align center
+		display none
+		.back-to-top
+			display inline-block
+			cursor pointer
+			color:#000;
+			padding-top:1.8em;
+			position:relative;
+			border-color:#000;
+			text-decoration:none;
+			transition:all .3s ease-out
+			&:before
+				content:'▲';
+				position:absolute;
+				top:0;
+				border solid .13em white;
+				border-radius 50%;
+				width:1.4em;
+				height:1.4em;
+				line-height:1.3em;
+				border-color:inherit;
+				transition:transform .5s ease-in;				
+			&:hover:before
+				transform: rotate(360deg);
+		
+			
 
-@media (max-width: 64em)
+@media screen and (max-width: 64em)
 	.content
 		padding 0
 		
