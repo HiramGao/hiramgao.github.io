@@ -1,0 +1,15 @@
+.tagcloud {
+  box-shadow: 0 1.5px 4px rgba(0,0,0,0.24), 0 1.5px 6px rgba(0,0,0,0.12);
+  -webkit-transition: box-shadow 1s ease;
+  -o-transition: box-shadow 1s ease;
+  transition: box-shadow 1s ease;
+  background-color: #fff;
+  font-family: 'Monda', 'PingFang SC';
+}
+.tagcloud:hover {
+  box-shadow: 0 15px 24px rgba(0,0,0,0.22), 0 19px 76px rgba(0,0,0,0.3);
+}
+.tagcloud a {
+  margin: 10px;
+  display: inline-block;
+}
