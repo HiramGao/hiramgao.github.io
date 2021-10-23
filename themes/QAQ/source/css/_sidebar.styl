@@ -2,9 +2,6 @@
   background-color #fff
   position relative
   box-shadow 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12)
-  -webkit-transition all .3s ease
-  -o-transition all .3s ease
-  transition all .3s ease
   &:hover
     box-shadow 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3)
   .author-image
@@ -83,11 +80,68 @@
       box-shadow 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3)
     a
       color #222
+
+  .sidebar-toggle 
+    padding: 0.5em 0.25em 0.5em 0;
+    text-align: right;	
+    font-size: 0.5rem
+    .l 
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 0.75em;
+      box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+      color: #fdea7b;
+      display: inline-flex;
+      align-items: center;
+      margin: auto;
+      padding: 0.15em;
+      width: 3em;
+      height: 1.5em;
+      transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      &:before, &:after 
+        content: "";
+        display: block;
+      &:before 
+        background-color: #d7d7d7;
+        border-radius: 50%;
+        width: 1.2em;
+        height: 1.2em;
+        transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+        z-index: 1;
+      &:after 
+        background:
+          linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+          repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+          radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+        background-repeat: no-repeat;
+        border: 0.25em solid transparent;
+        border-left: 0.4em solid #d8d8d8;
+        border-right: 0 solid transparent;
+        transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+        transform: translateX(-22.5%);
+        transform-origin: 25% 50%;
+        width: 1.2em;
+        height: 1em;
+      &:checked 
+        background-color: rgba(0,0,0,0.45);
+        box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+      &:checked:before 
+        background-color: currentColor;
+        transform: translateX(125%)
+      &:checked:after 
+        border-left-color: currentColor;
+        transform: translateX(-2.5%) rotateY(180deg);
+      &:focus 
+        outline: 0
 @media (max-width: 64em)
   .sidebar
     margin-top 0
     padding-top 0.5rem
     padding-bottom 0.5rem
+    .sidebar-toggle 
+      display none
     .author-image
       margin 0
       display inline-block
