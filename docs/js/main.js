@@ -39,8 +39,16 @@ $(function () {
     const sidebar = $('#sidebar')
     const context = $('#context')
 
-    let isHide = false
+    let sidebarHided = JSON.parse($.Cookies.get('sidebar'))
     let isAnimating = false
+    console.log(sidebarHided)
+    if (sidebarHided) {
+        $('.sidebar-main').css('display','none')
+        $('.copyright').css('display','none')
+
+        sidebar.css('width', '24px');
+        context.css('width', `${$('.max-width-4').width() - 24}px`);
+    }
 
     function closeAnimating() {
         isAnimating = false
@@ -56,9 +64,9 @@ $(function () {
             width: `${$('.max-width-4').width() - 24}px`,
             paddingLeft: 0
         }, 1000, "linear", closeAnimating);
+        $.Cookies.set('sidebar', true)
     }
     function showContext() {
-        console.log('showContext')
         $('.sidebar-main').show(500)
         $('.copyright').show(500)
         sidebar.animate({
@@ -68,13 +76,14 @@ $(function () {
             width: "75%",
             paddingLeft: '1rem'
         }, 500);
+        $.Cookies.set('sidebar', false)
     }
 
     toggle.on('click', function () {
         if (!isAnimating) {
             isAnimating = true
-            isHide ? showContext() : hideContext()
-            isHide = !isHide
+            sidebarHided ? showContext() : hideContext()
+            sidebarHided = !sidebarHided
         }
     })
 

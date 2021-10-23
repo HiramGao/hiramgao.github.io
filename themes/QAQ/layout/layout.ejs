@@ -13,5 +13,9 @@
 		</div>
 	</body>
 	<%- js('js/jquery.min.js')%>
+	<%- js({ src: 'js/js.cookie.min.js'}) %>
+	<script>
+		$.Cookies = window.Cookies
+	</script>
 	<%- js('js/main.js')%>
 </html>
