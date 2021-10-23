@@ -39,9 +39,8 @@ $(function () {
     const sidebar = $('#sidebar')
     const context = $('#context')
 
-    let sidebarHided = JSON.parse($.Cookies.get('sidebar'))
+    let sidebarHided = JSON.parse($.Cookies.get('sidebar') || 'false')
     let isAnimating = false
-    console.log(sidebarHided)
     if (sidebarHided) {
         $('.sidebar-main').css('display','none')
         $('.copyright').css('display','none')
