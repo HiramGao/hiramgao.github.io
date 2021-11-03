@@ -244,13 +244,8 @@
 .markdown-body dd {
   margin-left: 0;
 }
+.markdown-body pre,
 .markdown-body code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
-}
-.markdown-body pre {
-  margin-top: 0;
-  margin-bottom: 0;
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 .markdown-body .octicon {
@@ -429,7 +424,6 @@
   font-weight: bold;
 }
 .markdown-body table tr {
-  background-color: #fff;
   border-top: 1px solid #ccc;
 }
 .markdown-body table tr:nth-child(2n) {
@@ -479,7 +473,7 @@
 .markdown-body .highlight pre,
 .markdown-body pre {
   letter-spacing: 0.5px;
-  padding: 16px;
+  padding: 0.65em;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
@@ -521,10 +515,6 @@
 .markdown-body .pl-6 {
   padding-left: 48px !important;
 }
-.markdown-body .full-commit .btn-outline:not(:disabled):hover {
-  color: #4078c0;
-  border: 1px solid #4078c0;
-}
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
@@ -556,87 +546,85 @@
 .markdown-body hr {
   border-bottom-color: #eee;
 }
-td.gutter {
-  display: none;
-}
 td.code {
   padding: 0 !important;
 }
 figure.highlight {
   margin: 0;
   overflow: auto;
-}
-figure.highlight * {
-  border: none !important;
+  background: #272822;
 }
 figure.highlight table {
   margin-bottom: 0;
 }
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #23241f;
+figure.highlight .gutter {
+  width: 2em;
+  min-width: 2em;
 }
-.hljs,
-.hljs-tag,
-.hljs-subst {
-  color: #f8f8f2;
+figure.highlight .gutter pre {
+  width: 100%;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  color: #898989;
+  text-align: right;
+  border-right: 1px solid;
 }
-.hljs-strong,
-.hljs-emphasis {
-  color: #a8a8a2;
+figure.highlight .code {
+  padding: 0;
+  color: #ddd;
 }
-.hljs-bullet,
-.hljs-quote,
-.hljs-number,
-.hljs-regexp,
-.hljs-literal,
-.hljs-link {
-  color: #ae81ff;
-}
-.hljs-code,
-.hljs-title,
-.hljs-section,
-.hljs-selector-class {
-  color: #a6e22e;
-}
-.hljs-strong {
-  font-weight: bold;
-}
-.hljs-emphasis {
-  font-style: italic;
-}
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-name,
-.hljs-attr {
+figure.highlight .code .keyword,
+figure.highlight .code .literal,
+figure.highlight .code .name,
+figure.highlight .code .selector-tag,
+figure.highlight .code .strong,
+figure.highlight .code .tag {
   color: #f92672;
 }
-.hljs-symbol,
-.hljs-attribute {
+figure.highlight .code .code {
   color: #66d9ef;
 }
-.hljs-params,
-.hljs-class .hljs-title {
-  color: #f8f8f2;
+figure.highlight .code .attribute,
+figure.highlight .code .link,
+figure.highlight .code .regexp,
+figure.highlight .code .symbol {
+  color: #bf79db;
 }
-.hljs-string,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-selector-id,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-variable {
-  color: #e6db74;
+figure.highlight .code .addition,
+figure.highlight .code .built_in,
+figure.highlight .code .bullet,
+figure.highlight .code .emphasis,
+figure.highlight .code .section,
+figure.highlight .code .selector-attr,
+figure.highlight .code .selector-pseudo,
+figure.highlight .code .string,
+figure.highlight .code .subst,
+figure.highlight .code .template-tag,
+figure.highlight .code .template-variable,
+figure.highlight .code .title,
+figure.highlight .code .type,
+figure.highlight .code .variable {
+  color: #a6e22e;
 }
-.hljs-comment,
-.hljs-deletion,
-.hljs-meta {
+figure.highlight .code .class .title,
+figure.highlight .code .title.class_ {
+  color: #fff;
+}
+figure.highlight .code .comment,
+figure.highlight .code .deletion,
+figure.highlight .code .meta,
+figure.highlight .code .quote {
   color: #75715e;
+}
+figure.highlight .code .doctag,
+figure.highlight .code .keyword,
+figure.highlight .code .literal,
+figure.highlight .code .section,
+figure.highlight .code .selector-id,
+figure.highlight .code .selector-tag,
+figure.highlight .code .title,
+figure.highlight .code .type {
+  font-weight: 700;
 }
 .post {
   background-color: #fff;
@@ -682,6 +670,16 @@ figure.highlight table {
 .post .catalog .catalog-list li>a {
   color: inherit;
   text-decoration: none;
+  line-height: 1.5;
+  display: block;
+  border-bottom: 1px solid transparent;
+}
+.post .catalog .catalog-list li>a:hover {
+  background-color: rgba(33,150,243,0.1);
+  border-bottom-color: #2196f3;
+}
+.post .catalog .catalog-list li>a:hover .catalog-list-text:before {
+  color: #2196f3;
 }
 .post .catalog .catalog-list li>a .catalog-list-text {
   position: relative;

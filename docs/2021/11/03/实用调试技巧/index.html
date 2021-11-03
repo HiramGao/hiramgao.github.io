@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="shortcut icon" href="/favicon.ico?v=1.0" />
+	<link rel="bookmark" href="/favicon.ico?v=1.0" type="image/x-icon"/>
+	<meta name="google-site-verification" content="pz-ce-l_gQDa6VYnlRFQ9_zPjFd_RjdKQIYuQo3KOa4" />
+	<meta name="baidu-site-verification" content="vk6cCdHgcY" />
+
+	
+<link rel="stylesheet" href="/fontawesome/css/all.css">
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+	
+	
+	
+		<title>console实用调试技巧 | HiramGao</title>
+		
+<link rel="stylesheet" href="/css/post.css">
+
+	
+	
+	<meta name="author" content="HiramGao>">
+    
+	<meta name="description" content="一、基本打印1 console.log()123456789101112131415console.log(&amp;#x27;Hello World&amp;#x27;)// 占位符let hello = &amp;#x27;hello&amp;#x27;;console.log(&amp;#x27;%s&amp;#x27;,hello)// ">
+    
+
+    
+    
+	<meta name="keywords" content="JavaScript">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+	<body class="">
+		<div id="loading-wrapper">
+    <div class="orbit-spinner">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+    </div>
+</div>
+<style type="text/css">
+    .orbit-spinner, .orbit-spinner * {
+      box-sizing: border-box;
+    }
+
+    .orbit-spinner {
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      perspective: 800px;
+      margin: auto;
+    }
+
+    .orbit-spinner .orbit {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .orbit-spinner .orbit:nth-child(1) {
+      left: 0%;
+      top: 0%;
+      animation: orbit-spinner-orbit-one-animation 1200ms linear infinite;
+      border-bottom: 3px solid #ff1d5e;
+    }
+
+    .orbit-spinner .orbit:nth-child(2) {
+      right: 0%;
+      top: 0%;
+      animation: orbit-spinner-orbit-two-animation 1200ms linear infinite;
+      border-right: 3px solid #ff1d5e;
+    }
+
+    .orbit-spinner .orbit:nth-child(3) {
+      right: 0%;
+      bottom: 0%;
+      animation: orbit-spinner-orbit-three-animation 1200ms linear infinite;
+      border-top: 3px solid #ff1d5e;
+    }
+
+    @keyframes orbit-spinner-orbit-one-animation {
+      0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes orbit-spinner-orbit-two-animation {
+      0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes orbit-spinner-orbit-three-animation {
+      0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+      }
+    }
+</style>
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == 'complete') {
+            document.getElementById('loading-wrapper').style.display = 'none';
+        }
+    };
+</script>
+		<div class="progress">
+    <span class="progress-indicator" id="progress-indicator"></span>
+</div>
+		<div class="max-width-4 mx-auto">
+			<div class="clearfix">
+				<section id="sidebar" class="sidebar lg-col sm-col-12 lg-col-3 mx-auto mt2 center hvr-shadow-radial block">
+  <div id="sidebar-toggle" class="sidebar-toggle">
+	<input class="l" checked type="checkbox">
+</div>
+  <div class="sidebar-main">
+    <img id="avatar" src="/images/avatar.jpg" class="author-image mx-auto block border p1 circle mt3">
+    <h3 class="author-name">HiramGao</h3>
+    <p class="motto">行远必自迩，登高必自卑</p>
+    <nav class="site-info mt3">
+      <div class="inline-block site-info-item px2">
+        <a href="/archives" class="text-decoration-none">
+          <span class="site-info-name block">POSTS</span>
+          <span class="site-info-count">11</span>
+        </a>
+      </div>
+      <div class="inline-block site-info-item px2">
+        <a href="/tags" class="text-decoration-none">
+          <span class="site-info-name block">TAGS</span>
+          <span class="site-info-count">11</span>
+        </a>
+      </div>
+    </nav>
+    <div class="feed-link mt3 mb3">
+      <a class="text-decoration-none inline-block mx-auto" href="/atom.xml"><img src="/images/rss.png" alt=""> RSS</a>
+    </div>
+  </div>
+  <div class="copyright mt1 pt1 pb1 absolute">© 2017-2020 hiramgao <br>Powered by <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener">Hexo.</a> <br>Theme by <a target="_blank" href="https://github.com/HiramGao/hexo-theme-QAQ" rel="external nofollow noopener">hiramgao</a></div>
+
+</section>
+
+				<section id="context" class="content sm-col sm-col-12 lg-col-8 border-box pl2 animated fadeInRightBig faster">
+  <nav class="navigation mt2 list-reset py2 animated slideInDown faster hvr-shadow-radial block">
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/">首页</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/archives">归档</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/tags">标签</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        <a class="text-decoration-none py1" href="https://hiramgao.github.io/cv/" target="_blank">关于我</a>
+    </li>
+    <li class="inline-block mx2 search">
+        
+    </li>
+</nav>
+
+  <article class="post mt1 p2 mb3">
+  <header class="post-header my1 pb2">
+    <h1 class="m0 center">console实用调试技巧</h1>
+    <small class="time center block">
+      发表于&nbsp;<time>2021-11-03</time>
+    </small>
+  </header>
+  <nav class="catalog mt1 mb1 pb1">
+    <div class="catalog-title mt2 mb1">
+      目录
+    </div>
+    <div class="catalog-body">
+      <ol class="catalog-list"><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%89%93%E5%8D%B0"><span class="catalog-list-text">一、基本打印</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1-console-log"><span class="catalog-list-text">1 console.log()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2-console-warn-amp-amp-console-error"><span class="catalog-list-text">2 console.warn() &amp;&amp; console.error()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#3-console-info"><span class="catalog-list-text">3 console.info()</span></a></li></ol></li><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#%E4%BA%8C%E3%80%81%E6%89%93%E5%8D%B0%E6%97%B6%E9%97%B4"><span class="catalog-list-text">二、打印时间</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1-console-time-amp-amp-console-timeEnd"><span class="catalog-list-text">1 console.time() &amp;&amp; console.timeEnd()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2-console-timeLog"><span class="catalog-list-text">2 console.timeLog()</span></a></li></ol></li><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#%E4%B8%89%E3%80%81%E5%88%86%E7%BB%84%E6%89%93%E5%8D%B0"><span class="catalog-list-text">三、分组打印</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1-console-group-amp-amp-console-groupEnd"><span class="catalog-list-text">1 console.group() &amp;&amp; console.groupEnd()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2-console-groupCollapsed"><span class="catalog-list-text">2 console.groupCollapsed()</span></a></li></ol></li><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#%E5%9B%9B%E3%80%81%E8%AE%A1%E6%95%B0"><span class="catalog-list-text">四、计数</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1-console-count"><span class="catalog-list-text">1 console.count()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2-console-countReset"><span class="catalog-list-text">2 console.countReset()</span></a></li></ol></li><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#%E4%BA%94%E3%80%81%E5%85%B6%E4%BB%96"><span class="catalog-list-text">五、其他</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1-console-table"><span class="catalog-list-text">1 console.table()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2-console-clear"><span class="catalog-list-text">2 console.clear()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#3-console-assert"><span class="catalog-list-text">3 console.assert()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#4-console-trace"><span class="catalog-list-text">4 console.trace()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#5-console-dir"><span class="catalog-list-text">5 console.dir()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#6-console-dirxml"><span class="catalog-list-text">6 console.dirxml()</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#7-console-memory"><span class="catalog-list-text">7 console.memory</span></a></li></ol></li></ol>
+    </div>
+  </nav>
+
+  <section class="post-body markdown-body px1 pb2">
+    <h1 id="一、基本打印"><a href="#一、基本打印" class="headerlink" title="一、基本打印"></a>一、基本打印</h1><h2 id="1-console-log"><a href="#1-console-log" class="headerlink" title="1 console.log()"></a>1 <code>console.log()</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;Hello World&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 占位符</span></span><br><span class="line"><span class="keyword">let</span> hello = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%s&#x27;</span>,hello)</span><br><span class="line"></span><br><span class="line"><span class="comment">// css样式</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%cHello World&#x27;</span>,<span class="string">&#x27;color: skyblue; font-size: 30px;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印图片</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c &#x27;</span>,<span class="string">&#x27;background-image:url(&quot;http://iyeslogo.orbrand.com/150902Google/005.gif&quot;);background-size:120% 120%;background-repeat:no-repeat;background-position:center center;line-height:60px;padding:30px 120px;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印DOM</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%o&#x27;</span>, <span class="built_in">document</span>.body) <span class="comment">//DOM内容</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%O&#x27;</span>, <span class="built_in">document</span>.body) <span class="comment">//DOM对象属性</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-console-warn-amp-amp-console-error"><a href="#2-console-warn-amp-amp-console-error" class="headerlink" title="2 console.warn() &amp;&amp; console.error()"></a>2 <code>console.warn()</code> &amp;&amp; <code>console.error()</code></h2><p>只是显示样式不一样，error会打印函数的调用者，同<code>console.trace()</code></p>
+<h2 id="3-console-info"><a href="#3-console-info" class="headerlink" title="3 console.info()"></a>3 <code>console.info()</code></h2><p>于console.log()一致</p>
+<h1 id="二、打印时间"><a href="#二、打印时间" class="headerlink" title="二、打印时间"></a>二、打印时间</h1><h2 id="1-console-time-amp-amp-console-timeEnd"><a href="#1-console-time-amp-amp-console-timeEnd" class="headerlink" title="1 console.time() &amp;&amp; console.timeEnd()"></a>1 <code>console.time()</code> &amp;&amp; <code>console.timeEnd()</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time();</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.timeEnd();</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"><span class="comment">//default: 1011.7919921875 ms</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用标记</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;timer1&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;timer2&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.timeEnd(<span class="string">&quot;timer1&quot;</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.timeEnd(<span class="string">&quot;timer2&quot;</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">//timer1: 1002.322021484375 ms</span></span><br><span class="line"><span class="comment">//timer2: 2013.634033203125 ms</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-console-timeLog"><a href="#2-console-timeLog" class="headerlink" title="2 console.timeLog()"></a>2 <code>console.timeLog()</code></h2><p><code>console.timeLog()</code>就是打印计时器<strong>当前的时间</strong>，而<code>console.timeEnd()</code>是<strong>结束计时器</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;timer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.timeLog(<span class="string">&quot;timer&quot;</span>)</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.timeEnd(<span class="string">&quot;timer&quot;</span>);</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.timeLog(<span class="string">&quot;timer&quot;</span>)</span><br><span class="line">            &#125;, <span class="number">1000</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// timer: 1010.26318359375 ms</span></span><br><span class="line"><span class="comment">// timer: 2012.291259765625 ms</span></span><br><span class="line"><span class="comment">// Timer &#x27;timer&#x27; does not exist</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、分组打印"><a href="#三、分组打印" class="headerlink" title="三、分组打印"></a>三、分组打印</h1><h2 id="1-console-group-amp-amp-console-groupEnd"><a href="#1-console-group-amp-amp-console-groupEnd" class="headerlink" title="1 console.group() &amp;&amp; console.groupEnd()"></a>1 <code>console.group()</code> &amp;&amp; <code>console.groupEnd()</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个信息分组</span></span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">&#x27;Alpha&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Alpha Group1&#x27;</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Alpha Group2&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.group(<span class="string">&#x27;Beat&#x27;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Beat Group1&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Beat Group2&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.groupEnd(<span class="string">&#x27;Beat&#x27;</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Alpha Group3&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd(<span class="string">&#x27;Alpha&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Alpha</span></span><br><span class="line"><span class="comment">//  Alpha Group1</span></span><br><span class="line"><span class="comment">//  Alpha Group2</span></span><br><span class="line"><span class="comment">//  Beat</span></span><br><span class="line"><span class="comment">//    Beat Group1</span></span><br><span class="line"><span class="comment">//    Beat Group2</span></span><br><span class="line"><span class="comment">//  Alpha Group3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-console-groupCollapsed"><a href="#2-console-groupCollapsed" class="headerlink" title="2 console.groupCollapsed()"></a>2 <code>console.groupCollapsed()</code></h2><p>类似于<code>console.group()</code>，不同的是，该方法默认打印的信息是折叠展示的</p>
+<h1 id="四、计数"><a href="#四、计数" class="headerlink" title="四、计数"></a>四、计数</h1><h2 id="1-console-count"><a href="#1-console-count" class="headerlink" title="1 console.count()"></a>1 <code>console.count()</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">  <span class="built_in">console</span>.count()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// default: 1</span></span><br><span class="line"><span class="comment">// default: 2</span></span><br><span class="line"><span class="comment">// default: 3</span></span><br><span class="line"><span class="comment">// default: 4</span></span><br><span class="line"><span class="comment">// default: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标签</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">  <span class="built_in">console</span>.count(<span class="string">&#x27;label&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// label: 1</span></span><br><span class="line"><span class="comment">// label: 2</span></span><br><span class="line"><span class="comment">// label: 3</span></span><br><span class="line"><span class="comment">// label: 4</span></span><br><span class="line"><span class="comment">// label: 5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-console-countReset"><a href="#2-console-countReset" class="headerlink" title="2 console.countReset()"></a>2 <code>console.countReset()</code></h2><p>重置计算器，提供标签名则重置 标签的计数器 ，不提供重置 默认计数器。</p>
+<h1 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h1><h2 id="1-console-table"><a href="#1-console-table" class="headerlink" title="1 console.table()"></a>1 <code>console.table()</code></h2><p><code>console.table() </code>方法有两个参数，第一个参数是需要打印的对象，第二个参数是需要打印的表格的标题，这里就是数组对象的属性值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.table(<span class="built_in">document</span>.body.childNodes,[<span class="string">&#x27;baseURI&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-console-clear"><a href="#2-console-clear" class="headerlink" title="2 console.clear()"></a>2 <code>console.clear()</code></h2><p>清除控制台的信息</p>
+<h2 id="3-console-assert"><a href="#3-console-assert" class="headerlink" title="3 console.assert()"></a>3 <code>console.assert()</code></h2><p><code>console.assert()</code>方法用于语句断言，当断言为 false时，则在信息到控制台输出错误信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(expression, message)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-console-trace"><a href="#4-console-trace" class="headerlink" title="4 console.trace()"></a>4 <code>console.trace()</code></h2><p><code>console.trace()</code>方法可以用于打印当前执行的代码在堆栈中的调用路径。</p>
+<h2 id="5-console-dir"><a href="#5-console-dir" class="headerlink" title="5 console.dir()"></a>5 <code>console.dir()</code></h2><p><code>console.dir()</code>方法可以在控制台中显示指定JavaScript对象的属性，并通过类似文件树样式的交互列表显示。</p>
+<h2 id="6-console-dirxml"><a href="#6-console-dirxml" class="headerlink" title="6 console.dirxml()"></a>6 <code>console.dirxml()</code></h2><p><code>console.dirxml()</code>方法用于显示一个明确的XML/HTML元素的包括所有后代元素的交互树。 </p>
+<h2 id="7-console-memory"><a href="#7-console-memory" class="headerlink" title="7 console.memory"></a>7 <code>console.memory</code></h2><p><code>console.memory</code>是console对象的一个属性，而不是一个方法。它可以用来查看当前内存的使用情况</p>
+
+  </section>
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+</article>
+
+  <div class="back-to-top-wrapper">
+    <div class="back-to-top">Top</div>
+</div>
+
+</section>
+
+			</div>
+		</div>
+	</body>
+	
+<script src="/js/jquery.min.js"></script>
+
+	
+<script src="/js/js.cookie.min.js"></script>
+
+	<script>
+		$.Cookies = window.Cookies
+	</script>
+	
+<script src="/js/main.js"></script>
+
+</html>

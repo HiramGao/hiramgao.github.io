@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="shortcut icon" href="/favicon.ico?v=1.0" />
+	<link rel="bookmark" href="/favicon.ico?v=1.0" type="image/x-icon"/>
+	<meta name="google-site-verification" content="pz-ce-l_gQDa6VYnlRFQ9_zPjFd_RjdKQIYuQo3KOa4" />
+	<meta name="baidu-site-verification" content="vk6cCdHgcY" />
+
+	
+<link rel="stylesheet" href="/fontawesome/css/all.css">
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+	
+	
+	
+		<title>25个正则表达式 | HiramGao</title>
+		
+<link rel="stylesheet" href="/css/post.css">
+
+	
+	
+	<meta name="author" content="HiramGao>">
+    
+	<meta name="description" content="25个常用正则表达式1、手机号码1234567const phoneReg = /^[1][3,4,5,6,7,8,9][0-9]&amp;#123;9&amp;#125;$/const phoneStr1 = &amp;#x27;18886233487&amp;#x27;console.log(phoneReg.test(pho">
+    
+
+    
+    
+	<meta name="keywords" content="JavaScript,正则表达式">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+	<body class="">
+		<div id="loading-wrapper">
+    <div class="orbit-spinner">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+    </div>
+</div>
+<style type="text/css">
+    .orbit-spinner, .orbit-spinner * {
+      box-sizing: border-box;
+    }
+
+    .orbit-spinner {
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      perspective: 800px;
+      margin: auto;
+    }
+
+    .orbit-spinner .orbit {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .orbit-spinner .orbit:nth-child(1) {
+      left: 0%;
+      top: 0%;
+      animation: orbit-spinner-orbit-one-animation 1200ms linear infinite;
+      border-bottom: 3px solid #ff1d5e;
+    }
+
+    .orbit-spinner .orbit:nth-child(2) {
+      right: 0%;
+      top: 0%;
+      animation: orbit-spinner-orbit-two-animation 1200ms linear infinite;
+      border-right: 3px solid #ff1d5e;
+    }
+
+    .orbit-spinner .orbit:nth-child(3) {
+      right: 0%;
+      bottom: 0%;
+      animation: orbit-spinner-orbit-three-animation 1200ms linear infinite;
+      border-top: 3px solid #ff1d5e;
+    }
+
+    @keyframes orbit-spinner-orbit-one-animation {
+      0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes orbit-spinner-orbit-two-animation {
+      0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes orbit-spinner-orbit-three-animation {
+      0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+      }
+    }
+</style>
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == 'complete') {
+            document.getElementById('loading-wrapper').style.display = 'none';
+        }
+    };
+</script>
+		<div class="progress">
+    <span class="progress-indicator" id="progress-indicator"></span>
+</div>
+		<div class="max-width-4 mx-auto">
+			<div class="clearfix">
+				<section id="sidebar" class="sidebar lg-col sm-col-12 lg-col-3 mx-auto mt2 center hvr-shadow-radial block">
+  <div id="sidebar-toggle" class="sidebar-toggle">
+	<input class="l" checked type="checkbox">
+</div>
+  <div class="sidebar-main">
+    <img id="avatar" src="/images/avatar.jpg" class="author-image mx-auto block border p1 circle mt3">
+    <h3 class="author-name">HiramGao</h3>
+    <p class="motto">行远必自迩，登高必自卑</p>
+    <nav class="site-info mt3">
+      <div class="inline-block site-info-item px2">
+        <a href="/archives" class="text-decoration-none">
+          <span class="site-info-name block">POSTS</span>
+          <span class="site-info-count">11</span>
+        </a>
+      </div>
+      <div class="inline-block site-info-item px2">
+        <a href="/tags" class="text-decoration-none">
+          <span class="site-info-name block">TAGS</span>
+          <span class="site-info-count">11</span>
+        </a>
+      </div>
+    </nav>
+    <div class="feed-link mt3 mb3">
+      <a class="text-decoration-none inline-block mx-auto" href="/atom.xml"><img src="/images/rss.png" alt=""> RSS</a>
+    </div>
+  </div>
+  <div class="copyright mt1 pt1 pb1 absolute">© 2017-2020 hiramgao <br>Powered by <a target="_blank" href="https://hexo.io/" rel="external nofollow noopener">Hexo.</a> <br>Theme by <a target="_blank" href="https://github.com/HiramGao/hexo-theme-QAQ" rel="external nofollow noopener">hiramgao</a></div>
+
+</section>
+
+				<section id="context" class="content sm-col sm-col-12 lg-col-8 border-box pl2 animated fadeInRightBig faster">
+  <nav class="navigation mt2 list-reset py2 animated slideInDown faster hvr-shadow-radial block">
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/">首页</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/archives">归档</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        
+        <a class="text-decoration-none py1" href="/tags">标签</a>
+        
+    </li>
+    <li class="inline-block mx2">
+        <a class="text-decoration-none py1" href="https://hiramgao.github.io/cv/" target="_blank">关于我</a>
+    </li>
+    <li class="inline-block mx2 search">
+        
+    </li>
+</nav>
+
+  <article class="post mt1 p2 mb3">
+  <header class="post-header my1 pb2">
+    <h1 class="m0 center">25个正则表达式</h1>
+    <small class="time center block">
+      发表于&nbsp;<time>2021-10-26</time>
+    </small>
+  </header>
+  <nav class="catalog mt1 mb1 pb1">
+    <div class="catalog-title mt2 mb1">
+      目录
+    </div>
+    <div class="catalog-body">
+      <ol class="catalog-list"><li class="catalog-list-item catalog-list-level-1"><a class="catalog-list-link" href="#25%E4%B8%AA%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="catalog-list-text">25个常用正则表达式</span></a><ol class="catalog-list-child"><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#1%E3%80%81%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81"><span class="catalog-list-text">1、手机号码</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#2%E3%80%81%E8%BA%AB%E4%BB%BD%E8%AF%81%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">2、身份证的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#3%E3%80%81%E9%82%AE%E7%AE%B1%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">3、邮箱的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#4%E3%80%81URL%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">4、URL的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#5%E3%80%81IPv4%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">5、IPv4的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#6%E3%80%8116%E8%BF%9B%E5%88%B6%E9%A2%9C%E8%89%B2%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">6、16进制颜色的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#7%E3%80%81%E6%97%A5%E6%9C%9F-YYYY-MM-DD"><span class="catalog-list-text">7、日期 YYYY-MM-DD</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#8%E3%80%81%E6%97%A5%E6%9C%9F-YYYY-MM-DD-hh-mm-ss"><span class="catalog-list-text">8、日期 YYYY-MM-DD hh:mm:ss</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#9%E3%80%81%E6%95%B4%E6%95%B0%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">9、整数的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#10%E3%80%81%E5%B0%8F%E6%95%B0%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">10、小数的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#11%E3%80%81%E4%BF%9D%E7%95%99n%E4%BD%8D%E5%B0%8F%E6%95%B0"><span class="catalog-list-text">11、保留n位小数</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#12%E3%80%81%E9%82%AE%E6%94%BF%E7%BC%96%E5%8F%B7%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">12、邮政编号的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#13%E3%80%81QQ%E5%8F%B7%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">13、QQ号的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#14%E3%80%81%E5%BE%AE%E4%BF%A1%E5%8F%B7%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">14、微信号的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#15%E3%80%81%E8%BD%A6%E7%89%8C%E5%8F%B7%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">15、车牌号的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#16%E3%80%81%E5%8F%AA%E5%90%AB%E5%AD%97%E6%AF%8D%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="catalog-list-text">16、只含字母的字符串</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#17%E3%80%81%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="catalog-list-text">17、包含中文的字符串</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#18%E3%80%81%E5%AF%86%E7%A0%81%E5%BC%BA%E5%BA%A6%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">18、密码强度的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#19%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6n%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">19、字符串长度n的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#20%E3%80%81%E6%96%87%E4%BB%B6%E6%8B%93%E5%B1%95%E5%90%8D%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="catalog-list-text">20、文件拓展名的校验</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#21%E3%80%81%E5%8C%B9%E9%85%8Dimg%E5%92%8Csrc"><span class="catalog-list-text">21、匹配img和src</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#22%E3%80%81%E5%8C%B9%E9%85%8Dhtml%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="catalog-list-text">22、匹配html中的注释</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#23%E3%80%81%E5%8C%B9%E9%85%8Dhtml%E4%B8%AD%E7%9A%84style"><span class="catalog-list-text">23、匹配html中的style</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#24%E3%80%81%E5%8C%B9%E9%85%8Dhtml%E4%B8%AD%E7%9A%84%E9%A2%9C%E8%89%B2"><span class="catalog-list-text">24、匹配html中的颜色</span></a></li><li class="catalog-list-item catalog-list-level-2"><a class="catalog-list-link" href="#25%E3%80%81%E5%8C%B9%E9%85%8DhtmlTag%EF%BC%88html%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="catalog-list-text">25、匹配htmlTag（html标签）</span></a></li></ol></li></ol>
+    </div>
+  </nav>
+
+  <section class="post-body markdown-body px1 pb2">
+    <h1 id="25个常用正则表达式"><a href="#25个常用正则表达式" class="headerlink" title="25个常用正则表达式"></a>25个常用正则表达式</h1><h2 id="1、手机号码"><a href="#1、手机号码" class="headerlink" title="1、手机号码"></a>1、手机号码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> phoneReg = <span class="regexp">/^[1][3,4,5,6,7,8,9][0-9]&#123;9&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> phoneStr1 = <span class="string">&#x27;18886233487&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(phoneReg.test(phoneStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> phoneStr2 = <span class="string">&#x27;17283017203897&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(phoneReg.test(phoneStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、身份证的校验"><a href="#2、身份证的校验" class="headerlink" title="2、身份证的校验"></a>2、身份证的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sfzReg = <span class="regexp">/^[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sfzStr1 = <span class="string">&#x27;415106199801012130&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(sfzReg.test(sfzStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sfzStr2 = <span class="string">&#x27;718381298381212183&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(sfzReg.test(sfzStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、邮箱的校验"><a href="#3、邮箱的校验" class="headerlink" title="3、邮箱的校验"></a>3、邮箱的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> emailReg = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> emailStrWY = <span class="string">&#x27;956666@163.com&#x27;</span> <span class="comment">// 163邮箱</span></span><br><span class="line"><span class="keyword">const</span> emailStrQQ = <span class="string">&#x27;956666@qq.com&#x27;</span> <span class="comment">// qq邮箱</span></span><br><span class="line"><span class="built_in">console</span>.log(emailReg.test(emailStrWY)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(emailReg.test(emailStrQQ)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> noEmail = <span class="string">&#x27;72873213.com&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(emailReg.test(noEmail)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4、URL的校验"><a href="#4、URL的校验" class="headerlink" title="4、URL的校验"></a>4、URL的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> urlReg = <span class="regexp">/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]&#123;2,6&#125;)([\/\w \.-]*)*\/?$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> urlStr1 = <span class="string">&#x27;https://haha.sunshine.com/xxx/xxx&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(urlReg.test(urlStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> urlStr2 = <span class="string">&#x27;sss://haha.sunshine.com/xxx/xxx&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(urlReg.test(urlStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5、IPv4的校验"><a href="#5、IPv4的校验" class="headerlink" title="5、IPv4的校验"></a>5、IPv4的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ipv4Reg = <span class="regexp">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ipv4Str1 = <span class="string">&#x27;122.12.56.65&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(ipv4Reg.test(ipv4Str1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ipv4Str2 = <span class="string">&#x27;122.12.56.655&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(ipv4Reg.test(ipv4Str2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6、16进制颜色的校验"><a href="#6、16进制颜色的校验" class="headerlink" title="6、16进制颜色的校验"></a>6、16进制颜色的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> color16Reg = <span class="regexp">/^#?([a-fA-F0-9]&#123;6&#125;|[a-fA-F0-9]&#123;3&#125;)$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> color16Str1 = <span class="string">&#x27;#fff&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(color16Reg.test(color16Str1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> color16Str2 = <span class="string">&#x27;#1234567&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(color16Reg.test(color16Str2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7、日期-YYYY-MM-DD"><a href="#7、日期-YYYY-MM-DD" class="headerlink" title="7、日期 YYYY-MM-DD"></a>7、日期 YYYY-MM-DD</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dateReg = <span class="regexp">/^\d&#123;4&#125;(\-)\d&#123;1,2&#125;\1\d&#123;1,2&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dateStr1 = <span class="string">&#x27;2021-10-10&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(dateReg.test(dateStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dateStr2 = <span class="string">&#x27;2021-01-01 1&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(dateReg.test(dateStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8、日期-YYYY-MM-DD-hh-mm-ss"><a href="#8、日期-YYYY-MM-DD-hh-mm-ss" class="headerlink" title="8、日期 YYYY-MM-DD hh:mm:ss"></a>8、日期 YYYY-MM-DD hh:mm:ss</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dateReg = <span class="regexp">/^(\d&#123;1,4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;) (\d&#123;1,2&#125;):(\d&#123;1,2&#125;):(\d&#123;1,2&#125;)$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dateStr1 = <span class="string">&#x27;2021-10-10 16:16:16&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(dateReg.test(dateStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dateStr2 = <span class="string">&#x27;2021-10-10 16:&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(dateReg.test(dateStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9、整数的校验"><a href="#9、整数的校验" class="headerlink" title="9、整数的校验"></a>9、整数的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> intReg = <span class="regexp">/^[-+]?\d*$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> intNum1 = <span class="number">12345</span></span><br><span class="line"><span class="built_in">console</span>.log(intReg.test(intNum1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> intNum2 = <span class="number">12345.1</span></span><br><span class="line"><span class="built_in">console</span>.log(intReg.test(intNum2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="10、小数的校验"><a href="#10、小数的校验" class="headerlink" title="10、小数的校验"></a>10、小数的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> floatReg = <span class="regexp">/^[-\+]?\d+(\.\d+)?$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> floatNum = <span class="number">1234.5</span></span><br><span class="line"><span class="built_in">console</span>.log(floatReg.test(floatNum)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="11、保留n位小数"><a href="#11、保留n位小数" class="headerlink" title="11、保留n位小数"></a>11、保留n位小数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkFloat</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`^([1-9]+[\d]*(.[0-9]&#123;1,<span class="subst">$&#123;n&#125;</span>&#125;)?)$`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 保留2位小数</span></span><br><span class="line"><span class="keyword">const</span> floatReg = checkFloat(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> floatNum1 = <span class="number">1234.5</span></span><br><span class="line"><span class="built_in">console</span>.log(floatReg.test(floatNum1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> floatNum2 = <span class="number">1234.55</span></span><br><span class="line"><span class="built_in">console</span>.log(floatReg.test(floatNum2)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> floatNum3 = <span class="number">1234.555</span></span><br><span class="line"><span class="built_in">console</span>.log(floatReg.test(floatNum3)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="12、邮政编号的校验"><a href="#12、邮政编号的校验" class="headerlink" title="12、邮政编号的校验"></a>12、邮政编号的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postalNoReg = <span class="regexp">/^\d&#123;6&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> postalNoStr1 = <span class="string">&#x27;522000&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(postalNoReg.test(postalNoStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> postalNoStr2 = <span class="string">&#x27;5220000&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(postalNoReg.test(postalNoStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="13、QQ号的校验"><a href="#13、QQ号的校验" class="headerlink" title="13、QQ号的校验"></a>13、QQ号的校验</h2><p>说明：5-11位数字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> qqReg = <span class="regexp">/^[1-9][0-9]&#123;4,10&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> qqStr1 = <span class="string">&#x27;1915801633&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(qqReg.test(qqStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> qqStr2 = <span class="string">&#x27;191580163333&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(qqReg.test(qqStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="14、微信号的校验"><a href="#14、微信号的校验" class="headerlink" title="14、微信号的校验"></a>14、微信号的校验</h2><p>说明：6至20位，以字母开头，字母，数字，减号，下划线</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wxReg = <span class="regexp">/^[a-zA-Z]([-_a-zA-Z0-9]&#123;5,19&#125;)+$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wxStr1 = <span class="string">&#x27;linsanxin885577&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(wxReg.test(wxStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wxStr2 = <span class="string">&#x27;厉害了我的vx&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(wxReg.test(wxStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="15、车牌号的校验"><a href="#15、车牌号的校验" class="headerlink" title="15、车牌号的校验"></a>15、车牌号的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> carNoReg = <span class="regexp">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;1&#125;[A-Z]&#123;1&#125;[A-Z0-9]&#123;4&#125;[A-Z0-9挂学警港澳]&#123;1&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> carNoStr1 = <span class="string">&#x27;粤A12345&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(carNoReg.test(carNoStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> carNoStr2 = <span class="string">&#x27;广东A12345&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(carNoReg.test(carNoStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="16、只含字母的字符串"><a href="#16、只含字母的字符串" class="headerlink" title="16、只含字母的字符串"></a>16、只含字母的字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> letterReg = <span class="regexp">/^[a-zA-Z]+$/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> letterStr1 = <span class="string">&#x27;sunshineLin&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(letterReg.test(letterStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> letterStr2 = <span class="string">&#x27;sunshine_Lin&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(letterReg.test(letterStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="17、包含中文的字符串"><a href="#17、包含中文的字符串" class="headerlink" title="17、包含中文的字符串"></a>17、包含中文的字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cnReg = <span class="regexp">/[\u4E00-\u9FA5]/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cnStr1 = <span class="string">&#x27;我是sunshine_Lin，林三心&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(cnReg.test(cnStr1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cnStr2 = <span class="string">&#x27;sunshine_Lin&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(cnReg.test(cnStr2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="18、密码强度的校验"><a href="#18、密码强度的校验" class="headerlink" title="18、密码强度的校验"></a>18、密码强度的校验</h2><p>说明：密码中必须包含字母、数字、特称字符，至少8个字符，最多30个字符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> passwordReg = <span class="regexp">/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).&#123;8,30&#125;/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> password1 = <span class="string">&#x27;sunshine_Lin12345..&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(passwordReg.test(password1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> password2 = <span class="string">&#x27;sunshineLin12345&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(passwordReg.test(password2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="19、字符串长度n的校验"><a href="#19、字符串长度n的校验" class="headerlink" title="19、字符串长度n的校验"></a>19、字符串长度n的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStrLength</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`^.&#123;<span class="subst">$&#123;n&#125;</span>&#125;$`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 校验长度为3的字符串</span></span><br><span class="line"><span class="keyword">const</span> lengthReg = checkStrLength(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str1 = <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(lengthReg.test(str1)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str2 = <span class="string">&#x27;hhhhh&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(lengthReg.test(str2)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="20、文件拓展名的校验"><a href="#20、文件拓展名的校验" class="headerlink" title="20、文件拓展名的校验"></a>20、文件拓展名的校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkFileName</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  arr = arr.map(<span class="function"><span class="params">name</span> =&gt;</span> <span class="string">`.<span class="subst">$&#123;name&#125;</span>`</span>).join(<span class="string">&#x27;|&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(<span class="subst">$&#123;arr&#125;</span>)$`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filenameReg = checkFileName([<span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;png&#x27;</span>, <span class="string">&#x27;txt&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filename1 = <span class="string">&#x27;sunshine.jpg&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(filenameReg.test(filename1)) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> filename2 = <span class="string">&#x27;sunshine.png&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(filenameReg.test(filename2)) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> filename3 = <span class="string">&#x27;sunshine.txt&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(filenameReg.test(filename3)) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> filename4 = <span class="string">&#x27;sunshine.md&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(filenameReg.test(filename4)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="21、匹配img和src"><a href="#21、匹配img和src" class="headerlink" title="21、匹配img和src"></a>21、匹配img和src</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> imgReg = <span class="regexp">/&lt;img.*?src=[\&quot;|\&#x27;]?(.*?)[\&quot;|\&#x27;]?\s.*?&gt;/ig</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;div&gt;&lt;/div&gt;&lt;img src=&quot;sunshine.png&quot; /&gt;&lt;img src=&quot;sunshine111.png&quot; /&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(imgReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;&lt;img src=&quot;sunshine.png&quot; /&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;sunshine.png&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 11,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div&gt;&lt;/div&gt;&lt;img src=&quot;sunshine.png&quot; /&gt;&lt;img src=&quot;sunshine111.png&quot; /&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="built_in">console</span>.log(imgReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;&lt;img src=&quot;sunshine111.png&quot; /&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;sunshine111.png&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 37,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div&gt;&lt;/div&gt;&lt;img src=&quot;sunshine.png&quot; /&gt;&lt;img src=&quot;sunshine111.png&quot; /&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ] </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="22、匹配html中的注释"><a href="#22、匹配html中的注释" class="headerlink" title="22、匹配html中的注释"></a>22、匹配html中的注释</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> noteReg = <span class="regexp">/&lt;!--(.*?)--&gt;/g</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt; &lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(noteReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;&lt;!--一个div标签--&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;一个div标签&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 0,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt; &lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="built_in">console</span>.log(noteReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;&lt;!--一个div标签--&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;一个div标签&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 27,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt; &lt;!--一个div标签--&gt; &lt;div&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="23、匹配html中的style"><a href="#23、匹配html中的style" class="headerlink" title="23、匹配html中的style"></a>23、匹配html中的style</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> styleReg = <span class="regexp">/style=&quot;[^=&gt;]*&quot;([(\s+\w+=)|&gt;])/g</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(styleReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;style=&quot;background:#000;&quot;&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 5,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="built_in">console</span>.log(styleReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;style=&quot;color:#fff&quot;&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 36,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="24、匹配html中的颜色"><a href="#24、匹配html中的颜色" class="headerlink" title="24、匹配html中的颜色"></a>24、匹配html中的颜色</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> colorReg = <span class="regexp">/#([A-Fa-f0-9]&#123;6&#125;|[A-Fa-f0-9]&#123;3&#125;)/g</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(colorReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;#000&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;000&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 23,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"><span class="built_in">console</span>.log(colorReg.exec(htmlStr))</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#x27;#fff&#x27;,</span></span><br><span class="line"><span class="comment">//   &#x27;fff&#x27;,</span></span><br><span class="line"><span class="comment">//   index: 49,</span></span><br><span class="line"><span class="comment">//   input: &#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;,</span></span><br><span class="line"><span class="comment">//   groups: undefined</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="25、匹配htmlTag（html标签）"><a href="#25、匹配htmlTag（html标签）" class="headerlink" title="25、匹配htmlTag（html标签）"></a>25、匹配htmlTag（html标签）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> endReg = <span class="regexp">/&lt;(&quot;[^&quot;]*&quot;|&#x27;[^&#x27;]*&#x27;|[^&#x27;&quot;&gt;])*&gt;/g</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;div style=&quot;background:#000;&quot;&gt;&lt;span style=&quot;color:#fff&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;h1&gt;&lt;/h1&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(endReg.exec(htmlStr))</span><br></pre></td></tr></table></figure>
+
+
+
+  </section>
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+</article>
+
+  <div class="back-to-top-wrapper">
+    <div class="back-to-top">Top</div>
+</div>
+
+</section>
+
+			</div>
+		</div>
+	</body>
+	
+<script src="/js/jquery.min.js"></script>
+
+	
+<script src="/js/js.cookie.min.js"></script>
+
+	<script>
+		$.Cookies = window.Cookies
+	</script>
+	
+<script src="/js/main.js"></script>
+
+</html>

@@ -17,14 +17,5 @@
   <section class="post-body markdown-body px1 pb2">
     <%- page.content %>
   </section>
-
-  <%- js('js/highlight.pack.js')%>
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      var codeBlock = [].slice.call(document.getElementsByTagName('pre'));
-      codeBlock.forEach(function(b,i){
-        hljs.highlightBlock(b);
-      });
-    });
-  </script>
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 </article>

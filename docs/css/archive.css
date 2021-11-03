@@ -32,9 +32,6 @@
 .archive .archive-post .post-title {
   color: #2196f3;
 }
-.archive .archive-post .post-title:hover {
-  text-decoration: underline;
-}
 @media (max-width: 64em) {
   .archive .archive-item a {
     overflow: hidden;

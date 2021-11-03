@@ -7,7 +7,7 @@
   },
   "scripts": {
     "g": "hexo clean && hexo g",
-    "s": "hexo s",
+    "s": "hexo clean && hexo s",
     "push": "git add source/_posts/ && git commit -m '新的文章' && git push",
     "prepare": "husky install"
   },
